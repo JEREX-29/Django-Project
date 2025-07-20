@@ -35,9 +35,7 @@ if ENVIRONMENT == 'development' :
 else :
     DEBUG = False
 
-ALLOWED_HOSTS = ['localhost:8000','127.0.0.1','jerex.up.railway.app']
-
-CSRF_TRUSTED_ORIGIN = [ 'https://jerex.up.railway.app' ]
+ALLOWED_HOSTS = ['*']
 
 INTERNAL_IPS = (
     '127.0.0.1',
