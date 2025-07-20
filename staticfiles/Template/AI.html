@@ -1,0 +1,259 @@
+{% extends "base.html" %}
+
+{% block footer %}
+
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="{% static 'images/CMLOGO.png' %}">
+  
+  <title>JEREX.XO</title>
+  
+  <link rel="stylesheet" href="{% static 'css/AI.css' %}">
+  <link rel="stylesheet" href="{% if debug %}{% static "css/style.css" %}{% else %}{% static "css/style.min.css" %}{% endif %}">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="{% static 'js/En_CSS/Ai(CSS).js' %}"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header Section -->
+<div class="bg-white shadow-md px-4 py-3 grid grid-cols-[auto_1fr_auto] items-center relative z-50">
+  
+  <!-- Left: Logo + JEREX.XO -->
+  <div class="flex items-center space-x-2">
+    <img src="{% static 'images/CMLOGO.png' %}" alt="Logo"
+         class="w-12 h-12 sm:w-16 sm:h-16 rounded object-cover">
+    <span class="text-lg font-bold text-gray-900">
+      <a href="{% url 'Home' %}">JEREX.XO</a>
+    </span>
+  </div>
+
+  <!-- Center: Nav or Hamburger -->
+  <div class="flex justify-center">
+    <!-- Desktop Nav Links -->
+    <nav class="hidden md:flex space-x-6 text-base sm:text-lg">
+      <a href="{% url 'Innovative' %}" class="text-gray-700 hover:text-gray-900">Innovative Designs</a>
+      <a href="{% url 'Sustainable' %}" class="text-gray-700 hover:text-gray-900">Sustainable Future</a>
+      <a href="{% url 'Ai' %}" class="text-gray-700 hover:text-gray-900">AI Technology</a>
+    </nav>
+
+    <!-- Mobile Hamburger -->
+    <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Right: Logout -->
+  <div class="flex justify-end">
+    <a href="{% url 'logout' %}">
+      <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-300 text-sm sm:text-base">
+        Logout
+      </button>
+    </a>
+  </div>
+</div>
+
+<!-- Mobile Dropdown Menu -->
+<div id="mobile-menu" class="md:hidden hidden px-4 py-4 bg-white border-t space-y-2">
+  <a href="{% url 'Innovative' %}" class="block text-gray-700 hover:text-gray-900">Innovative Designs</a>
+  <a href="{% url 'Sustainable' %}" class="block text-gray-700 hover:text-gray-900">Sustainable Future</a>
+  <a href="{% url 'Ai' %}" class="block text-gray-700 hover:text-gray-900">AI Technology</a>
+</div>
+
+
+  <!-- Hero Section -->
+  <div class="main-div1 relative bg-gradient-to-b from-black to-gray-800 text-white px-8 py-20">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <div class="bg-img-hero h-full w-full bg-cover bg-center opacity-50"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10">
+      <div class="mx-auto text-left">
+        <h1 class="text-5xl font-bold mb-4">Future Today</h1>
+        <p class="text-lg mb-8">Where AI meets automotive innovation for a sustainable tomorrow.</p>
+      </div>
+      <div class="mt-12 text-left text-6xl font-bold text-white opacity-50">
+        JEREX.XO
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+        <h1><span>Meet</span> JEREX.XO™</h1>
+        <p>The world’s first autonomous ride-hailing service</p>
+        <a href="{% url 'Registration' %}" class="cta-btn">➝ Be one of the first</a>
+    </div>
+    <div class="hero-image">
+        <img src="{% static 'images/sidebyside(AI).png' %}" alt="Self Driving Car">
+    </div>
+</section>
+
+<section class="city-block">
+  <!-- Service Section -->
+  <section class="service-container">
+    <!-- Left Side Title -->
+    <div class="service-title">
+      <h1>Our service</h1>
+    </div>
+
+    <!-- Right Side Content -->
+    <div class="service-content">
+      <div class="service-box">
+        <i class="fas fa-clock"></i>
+        <h3>Available 24/7</h3>
+        <p>Day or night, we'll get you where you need to go.</p>
+      </div>
+      <div class="service-box">
+        <i class="fas fa-magic"></i>
+        <h3>An experience second to none</h3>
+        <p>Convenient, consistent, safe — and pure magic.</p>
+      </div>
+      <div class="service-box">
+        <i class="fas fa-car"></i>
+        <h3>A sustainable way to move</h3>
+        <p>Fully electric, powered by 100% renewable energy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cities Section -->
+  <div class="cities">
+    <h2>Current cities</h2>
+    <div class="city-list">
+      <div class="city">
+        <img src="https://lh3.googleusercontent.com/JPe8LEEMxUqu_JkSM3zyg6h3ogdEDuBNGfCIqow3fyhWGW6EU7p4guCG50MFG4AnVA64Gq6muERX-bh44YEsbI5Z9i6pmN84PhbbYw4=rw-w2880-e365" alt="Phoenix">
+        <div class="city-info">
+          <h3>Phoenix</h3>
+          <p>Waymo One is open to all across 315 square miles of the Valley of the Sun.</p>
+          <a href="{% url 'Registration' %}">➝ Get a ride in PHX</a>
+        </div>
+      </div>
+      <div class="city">
+        <img src="https://lh3.googleusercontent.com/PM9t19hVdnySoLh-ZjKAmFv-7hE4j0pqBv0XQj8abnx2GO68Km1cF2YJ3ThDjCbMAbNfOGA_YNYEZNP3U6q0G4Vhb-nF4-UFdcw1AQs=rw-w2880-e365" alt="San Francisco">
+        <div class="city-info">
+          <h3>San Francisco</h3>
+          <p>Anyone can download, request, and ride today in the City by the Bay and Daly City.</p>
+          <a href="{% url 'Registration' %}">➝ Get a ride in SF</a>
+        </div>
+      </div>
+      <div class="city">
+        <img src="https://lh3.googleusercontent.com/nPRr5-hu85fsUJDfq2nIXhElZSTy3bR4JZVT6DjOwpTamqmgzpDdpTn6P9IuifEzqsycpQuan-N67_CKbJ-VoiQqg4JorK-imDid5XRS=rw-w2880-e365" alt="Los Angeles">
+        <div class="city-info">
+          <h3>Los Angeles</h3>
+          <p>Welcoming all riders in the City of Stars! Ride from Santa Monica to Downtown today.</p>
+          <a href="{% url 'Registration' %}">➝ Get a ride in LA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section>
+    <section class="testimonial">
+        <p class="subtitle">Why they ride with Waymo</p>
+        <hr class="divider">
+
+        <div class="quote">
+            <span class="quote-mark">“</span>
+            The fact that Waymo provides convenience, prioritizes safety, and is committed to sustainability makes it by far my favorite mode of transportation.
+        </div>
+
+        <p class="author">Eva, San Francisco</p>
+
+        <div class="avatars">
+            <img src="https://lh3.googleusercontent.com/w0L-o2fgKzXATWKTylPGUpgc9jrJC4U1DD9lsWCXTPQNUzQR5hgOAuf2IyyB9tuq3u9M_KtGNY8_7C1yl6lZ_EBDf31hhGNdR_i8-NAY=rw-w2880-e365" alt="User 1">
+            <img src="https://lh3.googleusercontent.com/qvZguiSTWg1zARGoAye13tlq7RYV5UZvMl0DZdSWkd2jIpoz8H_tANATvsRS4Jm1kX5DvQbzeRBT79I07Ui0anrAtC98mPoYZ_BW0JA=rw-w2880-e365" alt="User 2">
+            <img src="https://lh3.googleusercontent.com/pGbE_TfgMfKUeCA-OQczZDWkxGI7xOiAil64fmg1QkngS-_MnDhPt9MzI9LO2N-tnRsJdxFsc-Kg7JkaAVf7uS3Opvzv0mo_D6HR9iI=rw-w2880-e365" alt="User 3">
+            <img src="https://lh3.googleusercontent.com/aFUtuoTnzJFTTFBD6dkRmTqsnsU7Z4GE6rpXNRbz3HiMTavZWGAFQA0B9hbeUxAqh_ko33XMkKgP6N6yJYvKFVj13nD8CuIPQtPmNp8=rw-w2880-e365" alt="User 4">
+            <img src="https://lh3.googleusercontent.com/aFUtuoTnzJFTTFBD6dkRmTqsnsU7Z4GE6rpXNRbz3HiMTavZWGAFQA0B9hbeUxAqh_ko33XMkKgP6N6yJYvKFVj13nD8CuIPQtPmNp8=rw-w2880-e365" alt="User 5">
+        </div>
+    </section>
+</section>
+
+<section class="bar-block">
+    <section class="stats-section">
+        <h2>In world the JEREX.XO Driver had:</h2>
+        <div class="stats-container">
+            <!-- Airbag Deployment -->
+            <div class="stat-item">
+                <div class="progress-container">
+                    <div class="progress-bar" data-percent="83"></div>
+                </div>
+                <div class="stat-icon">🚗</div>
+                <div class="stat-value">83%</div>
+                <p>Fewer airbag deployment crashes</p>
+                <span>↓ 65 FEWER</span>
+            </div>
+
+            <!-- Injury Crashes -->
+            <div class="stat-item">
+                <div class="progress-container">
+                    <div class="progress-bar" data-percent="81"></div>
+                </div>
+                <div class="stat-icon">🩹</div>
+                <div class="stat-value">81%</div>
+                <p>Fewer injury-causing crashes</p>
+                <span>↓ 154 FEWER</span>
+            </div>
+
+            <!-- Police Reported Crashes -->
+            <div class="stat-item">
+                <div class="progress-container">
+                    <div class="progress-bar" data-percent="64"></div>
+                </div>
+                <div class="stat-icon">🛡️</div>
+                <div class="stat-value">64%</div>
+                <p>Fewer police-reported crashes</p>
+                <span>↓ 170 FEWER</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- HTML: Responsive Safety Section -->
+<section class="safety-section">
+  <div class="background-lines"></div>
+
+  <div class="content">
+    <div class="text-container hidden">
+      <h2><span>Our</span> commitment to <br> safety</h2>
+      <p>
+        Autonomous vehicles mean nothing without safe driving.<br>
+        Our priority is to ensure the Waymo Driver provides a safe<br>
+        road experience for those inside — and outside — the vehicle.
+      </p>
+      <a href="#" class="cta-button">→ View our Safety Report and White Papers</a>
+    </div>
+
+    
+    <div class="circle-container">
+        <div class="glow-lines"></div>
+      <img src="https://lh3.googleusercontent.com/ohOBhJgSH-21ZNdsvKGFwN62QXp8gEjpOaSyRNe6_0tuIH1uOA7BP1ubt1UFMH7pAEzCYJoLJBqDSisF9aId0UTWm3Hkbi9mU4m995U=rw-w2880-e365" alt="Waymo Safety">
+    </div>
+  </div>
+</section>
+
+</section>
+  
+  <script src="{% static 'js/home.js' %}"></script>
+  <script src="{% static 'js/AI.js' %}"></script>
+  <script src="{% static 'js/slider.js' %}"></script>
+  <script src="{% static 'js/interactive-logo.js' %}"></script>
+</body>  
+</html>
+
+
+{% endblock footer %}

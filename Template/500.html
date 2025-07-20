@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>500 - Forbidden Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 12vw;
+      color: red;
+      text-shadow: 0 0 15px red, 0 0 25px white;
+      animation: flicker 2s infinite alternate;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      color: #fff;
+      text-shadow: 0 0 5px white;
+      animation: fadeIn 2s ease-in-out;
+      max-width: 90%;
+    }
+
+    a {
+      margin-top: 30px;
+      padding: 12px 24px;
+      border: 2px solid red;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px red;
+      font-size: 1rem;
+    }
+
+    a:hover {
+      background: red;
+      color: black;
+      box-shadow: 0 0 12px white;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 1; }
+      50% { opacity: 0.8; text-shadow: 0 0 10px red; }
+      100% { opacity: 1; text-shadow: 0 0 20px red, 0 0 40px white; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .glow-lines::before,
+    .glow-lines::after {
+      content: '';
+      position: absolute;
+      width: 100vw;
+      height: 1px;
+      background: linear-gradient(to right, transparent, red, transparent);
+      animation: scanline 5s linear infinite;
+      pointer-events: none;
+    }
+
+    .glow-lines::after {
+      top: auto;
+      bottom: 0;
+      animation-delay: 2.5s;
+    }
+
+    @keyframes scanline {
+      0% { top: 0; }
+      100% { top: 100%; }
+    }
+
+    /* Responsive adjustments */
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 8rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+
+      a {
+        font-size: 1.1rem;
+        padding: 14px 28px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      h1 {
+        font-size: 10rem;
+      }
+    }
+  </style>
+
+  <!-- Futuristic Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="glow-lines"></div>
+  <h1>500</h1>
+  <p>You do not have permission to access this page.</p>
+  <a href="{% url 'Home' %}">Return to Home</a>
+</body>
+</html>

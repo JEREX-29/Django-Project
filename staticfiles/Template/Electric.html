@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block footer %}
+
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <link rel="icon" href="{% static 'images/CMLOGO.png' %}">
+
+    <title>ELECTRIC WONDERS</title>
+
+    <link rel="stylesheet" href="{% static 'css/electric.css' %}">
+
+    <script src="{% static 'js/En_CSS/electric(CSS).js' %}"></script>
+
+    <link rel="stylesheet" href="{% if debug %}{% static "css/style.css" %}{% else %}{% static "css/style.min.css" %}{% endif %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+  <div class="px-8 py-4 flex items-center justify-between relative">
+
+    <!-- Logo Section (Left) -->
+    <div class="flex items-center space-x-3 flex-shrink-0">
+      <img src="{% static 'images/CMLOGO.png' %}" alt="Logo" class="w-20 h-20 rounded">
+      <span class="text-xl font-bold text-gray-900">
+        <a href="{% url 'Home' %}">JEREX.XO</a>
+      </span>
+    </div>
+
+    <!-- Navigation Links (Center, only on md and above) -->
+    <nav class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
+      <a href="{% url 'Innovative' %}" class="text-gray-700 hover:text-gray-600">Innovative Designs</a>
+      <a href="{% url 'Sustainable' %}" class="text-gray-700 hover:text-gray-600">Sustainable Future</a>
+      <a href="{% url 'Ai' %}" class="text-gray-700 hover:text-gray-600">AI Technology</a>
+    </nav>
+
+    <!-- Logout Button (Right, always visible on md and above) -->
+    <div class="hidden md:flex items-center">
+      <a href="{% url 'logout' %}">
+        <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-300">
+          Logout
+        </button>
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger Toggle -->
+    <button id="menu-toggle" class="md:hidden focus:outline-none">
+      <svg class="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="md:hidden hidden px-8 pb-4 space-y-3 text-center bg-white shadow-md">
+    <a href="{% url 'Innovative' %}" class="block text-gray-700 hover:text-gray-600">Innovative Designs</a>
+    <a href="{% url 'Sustainable' %}" class="block text-gray-700 hover:text-gray-600">Sustainable Future</a>
+    <a href="{% url 'Ai' %}" class="block text-gray-700 hover:text-gray-600">AI Technology</a>
+    <a href="{% url 'logout' %}">
+      <button class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-300">
+        Logout
+      </button>
+    </a>
+  </div>
+
+{% comment %} ///////////////////////////////////////////////////////////////////////////////////////////////// {% endcomment %}
+
+<div class="particles"></div>
+
+<header data-aos="fade-down">
+  <h1 class="neon-glow">⚡ Electric Car Showcase</h1>
+  <p>Explore the future of mobility in high voltage style</p>
+</header>
+
+<section class="section">
+  <h2 data-aos="zoom-in">⚙️ Featured Electric Beasts</h2>
+
+  <!-- Tesla -->
+  <div class="car-card" data-aos="fade-up-right">
+    <img src="{% static 'images/Tesla-Roadster.jpg' %}" alt="Tesla Model S">
+    <div class="car-details">
+      <h3>Tesla Model S</h3>
+      <p>The Tesla Model S delivers unmatched electric range and breathtaking performance, reaching 0-100km/h in just 3.1 seconds with Full Self Driving capability.</p>
+      <div class="specs">
+        <div class="badge">🔋 652 KM Range</div>
+        <div class="badge">⚡ 322 KM/H Top Speed</div>
+        <div class="badge">🧠 Autopilot Enabled</div>
+        <div class="badge">🌐 Over-the-air Updates</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Porsche -->
+  <div class="car-card" data-aos="fade-up-left">
+    <img src="{% static 'images/Transpo_PorscheTaycan.jpeg' %}" alt="Porsche Taycan">
+    <div class="car-details">
+      <h3>Porsche Taycan</h3>
+      <p>Meet the electric rocket with Porsche’s signature handling. The Taycan accelerates from 0-100km/h in 2.8 seconds, with luxurious interiors and 800V charging.</p>
+      <div class="specs">
+        <div class="badge">🔋 484 KM Range</div>
+        <div class="badge">⚡ 260 KM/H Top Speed</div>
+        <div class="badge">⚙️ 800V Fast Charging</div>
+        <div class="badge">🚀 Launch Control Mode</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audi -->
+  <div class="car-card" data-aos="fade-up-right">
+    <img src="{% static 'images/Audi-etron.jpg' %}" alt="Audi e-Tron GT">
+    <div class="car-details">
+      <h3>Audi e-Tron GT</h3>
+      <p>Style meets substance. The e-Tron GT offers stunning looks and all-wheel-drive performance with Audi’s Quattro system and luxury comfort.</p>
+      <div class="specs">
+        <div class="badge">🔋 488 KM Range</div>
+        <div class="badge">⚡ 245 KM/H Top Speed</div>
+        <div class="badge">🌧️ Quattro AWD</div>
+        <div class="badge">🔈 3D Sound System</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BMW -->
+  <div class="car-card" data-aos="fade-up-left">
+    <img src="{% static 'images/BMW-i4.jpeg' %}" alt="BMW i4">
+    <div class="car-details">
+      <h3>BMW i4</h3>
+      <p>The BMW i4 is a Gran Coupe designed for the driver. With precise handling and electric excitement, the i4 goes up to 590 km per charge.</p>
+      <div class="specs">
+        <div class="badge">🔋 590 KM Range</div>
+        <div class="badge">⚡ 225 KM/H Top Speed</div>
+        <div class="badge">🎮 M Sport Driving Modes</div>
+        <div class="badge">🛋️ Premium Cabin</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- AOS Script -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+  });
+
+  // Navbar
+
+  const toggleBtn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  toggleBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+    </body>
+</html>
+
+{% endblock footer %}

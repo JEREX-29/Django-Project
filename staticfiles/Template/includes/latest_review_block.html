@@ -1,0 +1,31 @@
+<div class="review-box" style="
+  background: linear-gradient(135deg, #e0f7ff, #f9fcff);
+  border: 1px solid #cdeafd;
+  padding: 2rem;
+  max-width: 550px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 170, 255, 0.15);
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  position: relative;
+">
+  {% if latest_review %}
+    <div style="position: absolute; top: -12px; left: 20px; background: #3498db; color: white; padding: 4px 10px; font-size: 0.8rem; border-radius: 8px;">New</div>
+    <p style="color: #2c3e50; font-size: 1.2rem;"><strong>{{ latest_review.name }}</strong> rated it:</p>
+    <p style="margin: 0.4rem 0;">
+      {% for i in "12345" %}
+        {% if forloop.counter <= latest_review.rating %}
+          <i class="fas fa-star" style="color: #f1c40f;"></i>
+        {% else %}
+          <i class="far fa-star" style="color: #ccc;"></i>
+        {% endif %}
+      {% endfor %}
+    </p>
+    <blockquote style="color: #34495e; font-style: italic; margin-top: 1rem;"><b>“{{ latest_review.comment }}”</b></blockquote>
+  {% else %}
+    <h2 style="font-size: 1.8rem; color: #95a5a6;"><i class="fas fa-star-half-alt"></i> No Reviews Yet</h2>
+    <p style="color: #7f8c8d;">Be the first one to leave a review!</p>
+  {% endif %}
+</div>

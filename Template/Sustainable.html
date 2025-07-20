@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block footer %}
+
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/CMLOGO.png' %}">
+    
+    <title>Sustainable Future</title>
+
+    <link rel="stylesheet" href="{% if debug %}{% static "css/style.css" %}{% else %}{% static "css/style.min.css" %}{% endif %}">
+
+    <link rel="stylesheet" href="{% static 'css/Sustainable.css' %}">
+
+    <script src="{% static 'js/En_CSS/Sustainable(CSS).js' %}"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">  
+</head>
+<body>
+    
+    <main>
+        <header class="flex items-center justify-between p-4">
+            <figure class="logo">
+                <img src="{% static 'images/CMLOGO.png' %}" alt="">
+            </figure>
+            <div class="relative inline-block">
+                <!-- Button -->
+                <button id="menu-button" class="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"/>
+                    </svg>
+                </button>
+                
+                <!-- Menu -->
+                <div id="menu" class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg opacity-0 invisible transform scale-95 transition-all duration-300 z-50">
+                    <ul class="py-2">
+                        <li class="px-4 py-2 hover:bg-gray-200 cursor-pointer"><a href="{% url 'Home' %}">Home</a></li>
+                        <li class="px-4 py-2 hover:bg-gray-200 cursor-pointer"><a href="{% url 'Innovative' %}">Innovative Designs</a></li>
+                        <li class="px-4 py-2 hover:bg-gray-200 cursor-pointer"><a href="{% url 'Sustainable' %}">Sustainable Future</a></li>
+                        <li class="px-4 py-2 hover:bg-gray-200 cursor-pointer"><a href="{% url 'Ai' %}">AI Technology</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <section class="slider">
+            <div class="list">
+                <div class="item active">
+                    <div class="image" style="--url: url('{% static 'images/1.jpg' %}')"></div>
+                    <div class="content">
+                        <h2>WHAT IS CAR?</h2>
+                        <p>
+                            A car, or an automobile, is a motor vehicle with wheels. Most definitions of cars state that they run primarily on roads, seat one to eight people, have four wheels, and mainly transport people rather than cargo.
+                        </p>
+                    </div>
+                </div>
+                <div class="item ">
+                    <div class="image" style="--url: url('{% static 'images/2.jpg' %}')"></div>
+                    <div class="content">
+                        <h2>FUTURE?</h2>
+                        <p>
+                            With a strong focus on reducing greenhouse gas emissions and minimizing the carbon footprint across every production stage.
+                        </p>
+                        <p>
+                            automotive companies are refining their strategies to create a sustainable automotive future.
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="image" style="--url: url('{% static 'images/3.jpg' %}')"></div>
+                    <div class="content">
+                        <h2>WHY SUSTAINABLE FUTURE?</h2>
+                        <p>
+                            Green cars are designed to reduce carbon emissions, conserve fuel and lead the way to a cleaner future.
+                        </p>
+                        <p>
+                            So forsaking fossil fuels for a greener option means cleaner air, less greenhouse emissions and smarter energy use.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="arrows">
+                <button id="prev">
+                    <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                    </svg>
+                </button>
+                <button id="next">
+                    <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <section>
+        <div class="section zig">
+            <div class="content-fit">
+                <div class="number">WHAT IS SUSTAINABLE DESIGN IN CAR?</div>
+                <div class="des">
+                    <div class="title">FUTURE</div>
+                    <p>
+                        Sustainable car design focuses on reducing environmental impact through innovative 
+                        materials, energy efficiency, and eco-friendly manufacturing processes. This involves 
+                        using lightweight, recyclable materials, optimizing aerodynamics for better fuel efficiency, 
+                        and integrating alternative energy sources such as electric and hydrogen power. Additionally, 
+                        advancements in battery technology and regenerative braking enhance energy conservation. Sustainable 
+                        manufacturing practices, including reduced emissions and waste, further contribute to a greener automotive 
+                        industry. As consumer demand for eco-friendly vehicles rises, automakers continue to innovate, balancing 
+                        sustainability with performance and safety to shape the future of transportation.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section zig">
+        <div class="content-fit">
+            <div class="number">Transforming products and processes</div>
+                <div class="des">
+                    <p>
+                    The journey towards sustainability starts with the right material choices, which favour innovative, eco-friendly 
+                    options to reduce the environmental impact. Beyond the aesthetics, our responsibility as designers is to select 
+                    materials and manufacturing processes that will enhance quality and efficiency, thus conserving energy. Furthermore, 
+                    we collaborate with product and strategy teams to tailor vehicles for evolving service and ownership models. Efficient 
+                    energy use is pivotal to our pursuit of zero emissions. The integration of cutting-edge technologies, such as lightweight 
+                    materials and energy-efficient propulsion systems, forms the backbone of sustainable automotive design. By embracing advancements 
+                    in battery technology and optimising energy consumption, we strive to enhance the efficiency of our vehicles, ultimately paving 
+                    the way for a more sustainable driving experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="section zig">
+            <div class="content-fit">
+                <div class="number">Driving Sustainable Design</div>
+                <div class="des">
+                    <p>
+                        The road to zero emissions is not solely paved with technological advancements; it also involves a fundamental shift 
+                        in design philosophy. Human-centric design places the user at the forefront, emphasising simplicity, functionality, 
+                        and the seamless integration of sustainable features into the driving experience. From intuitive user interfaces to 
+                        ergonomic interiors, our goal is to create vehicles that not only benefit the planet but also enhance the lives of those 
+                        who inhabit it.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <!-- Call to Action Content -->
+        <h1>Want to be a part of a Sustainable Future?</h1>
+        <p>"We do not inherit the Earth from our ancestors; we borrow it from our children." – Native American Proverb
+
+        </p>
+        <button class="cta-button"><a href="{% url 'Suggestion' %}">Get Started</a></button>
+    </section>
+
+
+    <script src="{% static 'js/Sustainable.js' %}"></script>
+</body>
+</html>
+
+{% endblock footer %}

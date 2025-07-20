@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="{% static 'images/CMLOGO.png' %}">
+    
+    <title>Innovative Designs</title>
+
+    <link rel="stylesheet" href="{% static 'css/Innovative.css' %}">
+    <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+
+    <script src="{% static 'js/En_CSS/innovative(CSS).js' %}"></script>
+    <script src="{% static 'js/En_CSS/gallery(CSS).js' %}"></script>
+    <script src="{% static 'js/En_CSS/innov(2)(CSS).js(CSS).js' %}"></script>
+
+    <link rel="stylesheet" href="{% if debug %}{% static "css/style.css" %}{% else %}{% static "css/style.min.css" %}{% endif %}">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css'>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+</head>
+
+<body>
+
+<!-- Header Section -->
+<div class="bg-white shadow-md px-4 py-3 grid grid-cols-[auto_1fr_auto] items-center">
+  
+  <!-- Left: Logo + JEREX.XO -->
+  <div class="flex items-center space-x-2">
+    <img src="{% static 'images/CMLOGO.png' %}" alt="Logo"
+         class="w-12 h-12 sm:w-16 sm:h-16 rounded object-cover">
+    <span class="text-lg font-bold text-gray-900">
+      <a href="{% url 'Home' %}">JEREX.XO</a>
+    </span>
+  </div>
+
+  <!-- Center: Hamburger (mobile) or Nav (desktop) -->
+  <div class="flex justify-center">
+    <!-- Desktop Nav Links -->
+    <nav class="hidden md:flex space-x-6 text-base sm:text-lg">
+      <a href="{% url 'Innovative' %}" class="text-gray-700 hover:text-gray-600">Innovative Designs</a>
+      <a href="{% url 'Sustainable' %}" class="text-gray-700 hover:text-gray-600">Sustainable Future</a>
+      <a href="{% url 'Ai' %}" class="text-gray-700 hover:text-gray-600">AI Technology</a>
+    </nav>
+
+    <!-- Mobile Hamburger -->
+    <button id="menu-toggle" class="md:hidden text-gray-800">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Right: Logout -->
+  <div class="flex justify-end">
+    <a href="{% url 'logout' %}">
+      <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-300 text-sm sm:text-base">
+        Logout
+      </button>
+    </a>
+  </div>
+</div>
+
+<!-- Mobile Dropdown Menu -->
+<div id="menu" class="md:hidden hidden px-4 py-4 bg-white border-t space-y-2">
+  <a href="{% url 'Innovative' %}" class="block text-gray-700 hover:text-gray-600">Innovative Designs</a>
+  <a href="{% url 'Sustainable' %}" class="block text-gray-700 hover:text-gray-600">Sustainable Future</a>
+  <a href="{% url 'Ai' %}" class="block text-gray-700 hover:text-gray-600">AI Technology</a>
+</div>
+
+
+<div class="section" id="banner">
+  <div class="content-fit">
+    <div class="title" data-before="JEREX.XO">MAKE YOUR IMPACT</div>
+  </div>
+  <img src="{% static 'images/icons8-maserati.svg' %}" class="decorate decorate-maserati" alt="Maserati">
+</div>
+
+
+<!-- INTRO SECTION -->
+<div class="section" id="intro">
+  <div class="content-fit">
+    <!-- Left Side Text -->
+    <div class="number">
+      Create a lasting impact in automotive design by developing sustainable vehicles that benefit you
+    </div>
+
+    <!-- Right Side GIFs -->
+    <div class="des">
+      <div class="video-container">
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmlvdng4dzM0bjV2N3dvY29ucjJwam52eXBlejZzNmQ5MGNqNjgwaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mlBDoVLOGidEc/giphy.gif" alt="Nature Gif">
+        <img src="https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif" alt="Ocean Gif">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- DESCRIPTION SECTION 1 -->
+<div class="section" id="description">
+  <div class="content-fit">
+    <div class="number">WHAT IS INNOVATIVE DESIGNS IN CAR?</div>
+    <div class="des">
+      <div class="title">FUTURE</div>
+      <p>
+        Innovative car design involves the integration of cutting-edge technology,
+        advanced materials, and creative engineering to enhance vehicle performance,
+        efficiency, safety, and aesthetics. It pushes the boundaries of traditional automotive
+        design to create smarter, more sustainable, and user-friendly vehicles.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION EXTRA (Aesthetics and Aero) -->
+<div class="section section-extra">
+  <div class="content-extra">
+    <div class="number">
+      Future-Forward Aesthetics and Aerodynamics
+    </div>
+    <div class="des">
+      <p>
+        One of the most visible aspects of innovative car design is the focus on sleek, aerodynamic
+        shapes that reduce air resistance and improve efficiency. Modern cars incorporate active aerodynamics
+        such as adaptive spoilers, air vents, and self-adjusting ride heights to optimize performance.
+        Concepts like hidden door handles, frameless windows, and sculpted bodywork create futuristic aesthetics
+        while improving airflow.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- DESCRIPTION SECTION 2 -->
+<div class="section" id="description">
+  <div class="content-fit">
+    <div class="number">Customizable and Modular Design Concepts</div>
+    <div class="des">
+      <p>
+        The future of car design includes modular platforms that allow users to adapt vehicles based on needs.
+        Swappable battery systems, configurable interiors, and adjustable driving modes offer a personalized and
+        flexible driving experience. Some manufacturers are experimenting with removable components and interchangeable
+        parts, allowing users to customize their cars like never before.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- Gallery Start -->
+    
+    <h1 class="title font-bold text-6xl text-center p-10">OUR VISION</h1>
+
+    <div class="Gallery">
+
+        <div class="gallery">
+            <div class="gallery__strip__wrapper">
+              <div class="gallery__strip one">
+                <div class="photo">
+                  <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/batmobile-like-renault-filante-record-2025-aims-to-be-the-worlds-most-energy-efficient-ev/Renault-Filante-Record-2025-Concept-13.jpg"/></div>
+                </div>
+                <div class="photo">
+                  <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/batmobile-like-renault-filante-record-2025-aims-to-be-the-worlds-most-energy-efficient-ev/Renault-Filante-Record-2025-Concept-4.jpg"/></div>
+                  
+                </div>
+                <div class="photo">
+                  <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/batmobile-like-renault-filante-record-2025-aims-to-be-the-worlds-most-energy-efficient-ev/Renault-Filante-Record-2025-Concept_2.jpg"/></div>
+             
+                </div>
+                <div class="photo">
+                  <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/batmobile-like-renault-filante-record-2025-aims-to-be-the-worlds-most-energy-efficient-ev/Renault-Filante-Record-2025-Concept-3.jpg"/></div>
+                 
+                </div>
+                <div class="photo">
+                    <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/batmobile-like-renault-filante-record-2025-aims-to-be-the-worlds-most-energy-efficient-ev/Renault-Filante-Record-2025-Concept-2.jpg"/></div>
+                   
+                  </div>
+              </div>
+            </div>
+            <div class="gallery__strip__wrapper">
+              <div class="gallery__strip two">
+                <div class="photo">
+                  <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/auto-draft/audi_quanta_4.jpg"/></div>
+                 
+                </div>
+                <div class="photo">
+                  <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/auto-draft/audi_quanta_1.jpg"/></div>
+                 
+                </div>
+                <div class="photo">
+                  <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/auto-draft/audi_quanta_2.jpg"/></div>
+                 
+                </div>
+                <div class="photo">
+                  <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/auto-draft/audi_quanta_5.jpg"/></div>
+                  
+                </div>
+                <div class="photo">
+                    <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/auto-draft/audi_quanta_8.jpg"/></div>
+                    
+                  </div>
+              </div>
+            </div>
+            <div class="gallery__strip__wrapper">
+              <div class="gallery__strip three">
+                <div class="photo">
+                  <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/huawei-maextro-s800-where-technology-meets-art-in-automotive-design/Huawei-Maextro-S800-hero.jpg"/></div>
+        
+                </div>
+                <div class="photo">
+                  <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/huawei-maextro-s800-where-technology-meets-art-in-automotive-design/Huawei-Maextro-S800-exterior.jpg"/></div>
+              
+                </div>
+                <div class="photo">
+                  <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/huawei-maextro-s800-where-technology-meets-art-in-automotive-design/Huawei-Maextro-S800-lights.jpg"/></div>
+                 
+                </div>
+                <div class="photo">
+                  <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/huawei-maextro-s800-where-technology-meets-art-in-automotive-design/Huawei-Maextro-S800-doorhandle.jpg"/></div>
+                  
+                </div>
+                <div class="photo">
+                    <div class="photo__image"><img src="https://www.yankodesign.com/images/design_news/2025/02/huawei-maextro-s800-where-technology-meets-art-in-automotive-design/Huawei-Maextro-S800-rear.jpg"/></div>
+                    
+                  </div>
+              </div>
+            </div>
+            <div class="gallery__strip__wrapper">
+              <div class="gallery__strip four">
+                <div class="photo">
+                  <div class="photo__image"><img src="{% static 'images/dsc4791.jpg' %}"/></div>
+        
+                </div>
+                <div class="photo">
+                  <div class="photo__image"><img src="{% static 'images/vision7s_34front.jpg' %}"/></div>
+              
+                </div>
+                <div class="photo">
+                  <div class="photo__image"><img src="{% static 'images/vision7s_34side.jpg' %}"/></div>
+                 
+                </div>
+                <div class="photo">
+                  <div class="photo__image"><img src="{% static 'images/dsc4822.jpg' %}"/></div>
+                  
+                </div>
+                <div class="photo">
+                    <div class="photo__image"><img src="{% static 'images/vision7s_skoda_logo.jpg' %}"/></div>
+                    
+                  </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+    <!-- Gallery End -->
+
+    <!-- FAQ -->
+
+    <section class="faq">
+  <h1>Frequently Asked Questions</h1>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span>01. Why Do We Need Uniqueness In Our Car?</span>
+      <span class="plus">+</span>
+    </button>
+    <div class="faq-answer">
+      Uniqueness in a car sets it apart with innovative design, advanced technology, and personalization, enhancing brand identity and driving experience.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span>02. What Is The Secret Of Our Success?</span>
+      <span class="plus">+</span>
+    </button>
+    <div class="faq-answer">
+      Our success lies in innovation, sustainability, and customer-centric design, ensuring exceptional quality and cutting-edge technology in every vehicle.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      <span>03. How We Keep Our Customer Happy?</span>
+      <span class="plus">+</span>
+    </button>
+    <div class="faq-answer">
+      We keep our customers happy by delivering top-quality, innovative vehicles with excellent service, personalized experiences, and continuous improvements.
+    </div>
+  </div>
+</section>
+
+  
+
+<!-- OUR SERVICES END -->
+
+<section class="contact-section" id="contact">
+  <div class="content-fit">
+    <div class="des">
+      <h2 class="title">CONTACT</h2>
+      <table class="contact-table">
+        <tr>
+          <td><strong>Email</strong></td>
+          <td><a href="mailto:Jerex2908@gmail.com">Jerex2908@gmail.com</a></td>
+        </tr>
+        <tr>
+          <td><strong>Phone</strong></td>
+          <td><a href="tel:+841231235">+841.231.235</a></td>
+        </tr>
+        <tr>
+          <td><strong>Website</strong></td>
+          <td><a href="https://jerex.xo.com" target="_blank" rel="noopener noreferrer">JEREX.XO.com</a></td>
+        </tr>
+      </table>
+      <div class="sign">JEREX.XO</div>
+    </div>
+  </div>
+</section>
+
+    <script src="{% static 'js/Innovative.js' %}"></script>
+</body>
+</html>

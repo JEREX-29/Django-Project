@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+{% block footer %}
+
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="{% static 'images/CMLOGO.png' %}">
+
+  <title>Luxury Innovation</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+  <link rel="stylesheet" href="{% static 'css/Luxury.css' %}">
+
+  <script src="{% static 'js/En_CSS/Luxury(CSS).js' %}"></script>
+
+  <link rel="stylesheet" href="{% if debug %}{% static "css/style.css" %}{% else %}{% static "css/style.min.css" %}{% endif %}">
+
+</head>
+<body>
+
+<!-- Header -->
+<header class="bg-white shadow-md px-4 md:px-8 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between w-full">
+
+    <!-- Left: Logo + Brand -->
+    <div class="flex items-center space-x-3 w-1/4">
+      <img src="{% static 'images/CMLOGO.png' %}" alt="Logo" class="w-12 h-12 rounded">
+      <span class="text-xl font-bold text-gray-900 whitespace-nowrap">
+        <a href="{% url 'Home' %}">JEREX.XO</a>
+      </span>
+    </div>
+
+    <!-- Center (Desktop Only): Navigation -->
+    <nav class="hidden md:flex justify-center space-x-8 w-2/4 text-center">
+      <a href="{% url 'Innovative' %}" class="text-gray-700 hover:text-gray-600 whitespace-nowrap">Innovative Designs</a>
+      <a href="{% url 'Sustainable' %}" class="text-gray-700 hover:text-gray-600 whitespace-nowrap">Sustainable Future</a>
+      <a href="{% url 'Ai' %}" class="text-gray-700 hover:text-gray-600 whitespace-nowrap">AI Technology</a>
+    </nav>
+
+    <!-- Right: Logout (Desktop Only) -->
+    <div class="hidden md:flex justify-end w-1/4">
+      <a href="{% url 'logout' %}">
+        <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-300 whitespace-nowrap">
+          Logout
+        </button>
+      </a>
+    </div>
+
+    <!-- Center (Mobile Only): Hamburger Menu Button -->
+    <div class="md:hidden ml-auto">
+      <button id="mobile-menu-button" class="focus:outline-none">
+        <svg class="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 text-center">
+    <a href="{% url 'Innovative' %}" class="block text-gray-700 hover:text-gray-600 py-2">Innovative Designs</a>
+    <a href="{% url 'Sustainable' %}" class="block text-gray-700 hover:text-gray-600 py-2">Sustainable Future</a>
+    <a href="{% url 'Ai' %}" class="block text-gray-700 hover:text-gray-600 py-2">AI Technology</a>
+    <a href="{% url 'logout' %}" class="block">
+      <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-300 w-full">
+        Logout
+      </button>
+    </a>
+  </div>
+</header>
+
+
+<div class="hero" data-aos="fade-up">
+  <h1>Luxury Innovation</h1>
+  <p>Where Elegance Meets Tomorrow’s Technology</p>
+</div>
+
+<div class="section" data-aos="fade-up">
+  <h2>About Innovation</h2>
+  <p>
+    Discover the revolution of luxury and intelligence in the automotive world. Luxury innovation redefines comfort, performance, and eco-consciousness—all elegantly fused with future-forward technologies like AI, automation, and zero-emission engineering.
+  </p>
+</div>
+
+
+<section class="features-section">
+  <div class="feature-card">
+    <img src="{% static 'images/future-intirio.jpg' %}" alt="Smart Interior">
+    <div class="feature-content">
+      <h3>Smart Interior Design</h3>
+      <p>Adaptive mood lighting, haptic touch panels, biometric seat adjustment, and surround-sound acoustics create personalized interior sanctuaries.</p>
+    </div>
+  </div>
+
+  <div class="feature-card">
+    <img src="{% static 'images/ai-drive.jpg' %}" alt="AI Tech">
+    <div class="feature-content">
+      <h3>AI Assisted Driving</h3>
+      <p>Advanced neural nets and real-time learning empower EVs to analyze roads, predict movement, and ensure unparalleled safety at high speeds.</p>
+    </div>
+  </div>
+
+  <div class="feature-card">
+    <img src="{% static 'images/minimalist.jpg' %}" alt="Exterior Design">
+    <div class="feature-content">
+      <h3>Minimalist Exteriors</h3>
+      <p>Sleek, aerodynamic shapes with seamless panels, digital lighting sequences, and dynamic paint finishes reflect futuristic elegance.</p>
+    </div>
+  </div>
+
+  <div class="feature-card">
+    <img src="{% static 'images/sustainable-drive.jpg' %}" alt="Sustainability">
+    <div class="feature-content">
+      <h3>Sustainable Luxury</h3>
+      <p>Natural bamboo dashboards, vegan leathers, ocean plastic textiles, and solar roofing make sustainability the new standard in opulence.</p>
+    </div>
+  </div>
+
+  <div class="feature-card">
+    <img src="{% static 'images/immersive-dashboard.jpg' %}" alt="Dashboards">
+    <div class="feature-content">
+      <h3>Immersive Dashboards</h3>
+      <p>Panoramic OLED dashboards and AR windshields deliver navigation, performance data, and personalized interfaces in real-time.</p>
+    </div>
+  </div>
+
+  <div class="feature-card">
+    <img src="{% static 'images/Autonomous.jpg' %}" alt="Autonomy">
+    <div class="feature-content">
+      <h3>Autonomous Mobility</h3>
+      <p>From valet summon mode to full Level-5 autonomous driving, future luxury cars will offer hands-free, eyes-free peace of mind.</p>
+    </div>
+  </div>
+
+  <div class="feature-card">
+    <img src="{% static 'images/Hyper-EV.jpg' %}" alt="Performance">
+    <div class="feature-content">
+      <h3>Hyper-EV Performance</h3>
+      <p>Electric hypercars boast over 1000hp, dual-motor AWD, and rocket from 0–100km/h in less than 2.5 seconds with zero emissions.</p>
+    </div>
+  </div>
+</section>
+
+
+<div class="future" data-aos="fade-up">
+  <h2>The Future of Premium Mobility</h2>
+  <p>
+    Experience intuitive living ecosystems on wheels—cars that communicate, evolve, and even recharge wirelessly. Welcome to the ultimate fusion of elegance, ethics, and engineering.
+  </p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1200,
+    once: true
+  });
+
+// Navigationbar
+
+const mobileMenuBtn = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+</body>
+</html>
+
+{% endblock %}

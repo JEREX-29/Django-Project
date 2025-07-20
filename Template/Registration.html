@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+
+
+{% block footer %}
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/CMLOGO.png' %}">
+
+    <title>Registration</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% if debug %}{% static "css/style.css" %}{% else %}{% static "css/style.min.css" %}{% endif %}">
+    <!-- Alertify CSS & JS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+</head>
+<body class="bg-gray-300">
+  
+  <!-- Navbar-->
+
+  <!-- Header Section -->
+<div class="bg-white shadow-md px-4 py-3 grid grid-cols-[auto_1fr_auto] items-center">
+  
+  <!-- Left: Logo + JEREX.XO -->
+  <div class="flex items-center space-x-2">
+    <img src="{% static 'images/CMLOGO.png' %}" alt="Logo"
+         class="w-12 h-12 sm:w-16 sm:h-16 rounded object-cover">
+    <span class="text-lg font-bold text-gray-900">
+      <a href="{% url 'Home' %}">JEREX.XO</a>
+    </span>
+  </div>
+
+  <!-- Center: Hamburger (mobile) or Nav (desktop) -->
+  <div class="flex justify-center">
+    <!-- Desktop Nav Links -->
+    <nav class="hidden md:flex space-x-6 text-base sm:text-lg">
+      <a href="{% url 'Innovative' %}" class="text-gray-700 hover:text-gray-600">Innovative Designs</a>
+      <a href="{% url 'Sustainable' %}" class="text-gray-700 hover:text-gray-600">Sustainable Future</a>
+      <a href="{% url 'Ai' %}" class="text-gray-700 hover:text-gray-600">AI Technology</a>
+    </nav>
+
+    <!-- Mobile Hamburger -->
+    <button id="menu-toggle" class="md:hidden text-gray-800">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Right: Logout -->
+  <div class="flex justify-end">
+    <a href="{% url 'logout' %}">
+      <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-300 text-sm sm:text-base">
+        Logout
+      </button>
+    </a>
+  </div>
+</div>
+
+<!-- Mobile Dropdown Menu -->
+<div id="menu" class="md:hidden hidden px-4 py-4 bg-white border-t space-y-2">
+  <a href="{% url 'Innovative' %}" class="block text-gray-700 hover:text-gray-600">Innovative Designs</a>
+  <a href="{% url 'Sustainable' %}" class="block text-gray-700 hover:text-gray-600">Sustainable Future</a>
+  <a href="{% url 'Ai' %}" class="block text-gray-700 hover:text-gray-600">AI Technology</a>
+</div>
+
+  <!-- Navbar Ends-->
+
+    <div class="container mx-auto px-4 py-12 max-w-3xl">
+      <div class="bg-white rounded-2xl shadow-lg p-6 md:p-10">
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-800">Register For Test Drive</h2>
+          <p class="text-gray-500 mt-2">Fill in the details below to get started</p>
+        </div>
+  
+        <form method='post' action="{% url "Registration" %}">
+          {% csrf_token %}
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- First Name -->
+            <div>
+              <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+              <input type="text" id="firstName" name='firstName' class="w-full px-4 py-3 rounded-lg border border-gray-300  transition duration-150 ease-in-out" placeholder="First Name" autocomplete="off" required>
+            </div>
+  
+            <!-- Last Name -->
+            <div>
+              <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+              <input type="text" id="lastName" name='lastName' class="w-full px-4 py-3 rounded-lg border border-gray-300  transition duration-150 ease-in-out" placeholder="Last Name" autocomplete="off" required>
+            </div>
+  
+            <!-- Email -->
+            <div class="md:col-span-2">
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+              <input type="email" id="email" name='email' class="w-full px-4 py-3 rounded-lg border border-gray-300  transition duration-150 ease-in-out" placeholder="example@example.com" autocomplete="off" required>
+              {% if error %}
+                <p class="text-red-600 font-semibold mb-4">{{ error }}</p>
+              {% endif %}
+            </div>
+  
+            <!-- Phone Number -->
+            <div class="md:col-span-2">
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+              <input type="tel" id="phone" name='phone' class="w-full px-4 py-3 rounded-lg border border-gray-300  transition duration-150 ease-in-out" placeholder="+91 1234567890" autocomplete="off" required>
+            </div>
+  
+            <!-- Password -->
+            <div>
+              <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <input type="password" id="password" name='password' class="w-full px-4 py-3 rounded-lg border border-gray-300  transition duration-150 ease-in-out" placeholder="••••••••" autocomplete="off" required>
+              {% if error1 %}
+                <p class="text-red-600 font-semibold mb-4">{{ error1 }}</p>
+              {% endif %}
+            </div>
+  
+            <!-- Confirm Password -->
+            <div>
+              <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+              <input type="password" id="confirmPassword" name='confirmPassword' class="w-full px-4 py-3 rounded-lg border border-gray-300  transition duration-150 ease-in-out" placeholder="••••••••" autocomplete="off" required>
+            </div>
+  
+            <!-- Date of Birth -->
+            <div>
+              <label for="dob" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+              <input type="date" id="dob" name='dob' class="w-full px-4 py-3 rounded-lg border border-gray-300  transition duration-150 ease-in-out" autocomplete="off" required>
+            </div>
+  
+            <!-- Country -->
+            <div>
+              <label for="country" class="block text-sm font-medium text-gray-700 mb-1">Country</label>
+              <select id="country" name='country' class="w-full px-4 py-3 rounded-lg border border-gray-300  transition duration-150 ease-in-out" required>
+                <option value="" selected disabled>Select your country</option>
+                <option value="us">INDIA</option>
+                <option value="ca">CHINA</option>
+                <option value="uk">KOREA</option>
+                <option value="au">SHRILANKA</option>
+              </select>
+            </div>
+   
+            <!-- Address -->
+            <div class="md:col-span-2">
+              <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+              <textarea id="address" name='address' rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-300  transition duration-150 ease-in-out" placeholder="Enter your full address" autocomplete="off" required></textarea>
+            </div>
+  
+            <!-- Terms and Conditions -->
+            <div class="md:col-span-2 mt-2">
+              <div class="flex items-start">
+                <div class="flex items-center h-5">
+                  <input id="terms" name='terms' type="checkbox" class="h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" required>
+                </div>
+                <div class="ml-3 text-sm">
+                  <label for="terms" class="font-medium text-gray-700">I agree to the <a href="#" class="text-indigo-600 hover:text-indigo-500">Terms and Conditions</a> and <a href="#" class="text-indigo-600 hover:text-indigo-500">Privacy Policy</a></label>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Submit Button -->
+          <div class="mt-8">
+            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg transition duration-150 ease-in-out shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+              SUBMIT
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      {% if messages %}
+        {% for message in messages %}
+          alertify.set('notifier','position', 'top-right');
+          alertify.{{ message.tags }}('{{ message }}');
+        {% endfor %}
+      {% endif %}
+
+      // ** Navigation Bar */
+
+const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+
+//** Navigation Bar End */  
+    </script>
+    
+  </body>
+</html>
+{% endblock footer %}

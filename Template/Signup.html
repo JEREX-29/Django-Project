@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/CMLOGO.png' %}">
+
+    <title>SignUp Page</title>
+
+    <link rel="stylesheet" href="{% static 'css/Login.css' %}">
+
+    <script src="{% static 'js/En_CSS/Login(CSS).js' %}"></script>
+
+    <link rel="stylesheet" href="{% if debug %}{% static "css/style.css" %}{% else %}{% static "css/style.min.css" %}{% endif %}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="{% static 'images/CMLOGO.png' %}" alt="">
+        </div>
+        <h1>Signup Now !</h1>
+        <p>First time here <span class="text-white">then never come again</span></p>
+    </header>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="username"> Username </label>
+        <input 
+        type="text" 
+        name="username" 
+        placeholder="xyz"
+        required>
+
+        <label for="email"> Email </label>
+        <input 
+        type="email" 
+        name="email" 
+        placeholder="xyz@gmail.com"
+        required>
+        
+        <label for="password1"> Password </label>
+        <input 
+        type="password" 
+        name="password1" 
+        placeholder="******"
+        required>
+
+        <label for="password2"> Confirm Password </label>
+        <input 
+        type="password" 
+        name="password2" 
+        placeholder="******"
+        required>
+
+        <button type="submit">Sign in</button>
+        <a class="text-link" href="{% url 'Login' %}">Alredy Have Account?</a>
+    </form>
+</body>
+
+</html>

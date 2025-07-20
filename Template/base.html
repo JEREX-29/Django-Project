@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="{% static 'images/CMLOGO.png' %}">
+  
+  <title>JEREX.XO</title>
+  
+  <link rel="stylesheet" href="{% static 'css/logo.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+  <link rel="stylesheet" href="{% static 'css/cyberpunk-btn.css' %}">
+  <link rel="stylesheet" href="{% static 'css/card.css' %}">
+
+  <script src="{% static 'js/En_CSS/logo(CSS).js' %}"></script>
+  <script src="{% static 'js/En_CSS/home(CSS).js' %}"></script>
+  <script src="{% static 'js/En_CSS/slider(CSS).js' %}"></script>
+  <script src="{% static 'js/En_CSS/cyberpunk-btn(CSS).js' %}"></script>
+  <script src="{% static 'js/En_CSS/card(CSS).js' %}"></script>
+  <script src="{% static 'js/En_CSS/CMNAME(CSS).js' %}"></script>
+
+  <link rel="stylesheet" href="{% if debug %}{% static "css/style.css" %}{% else %}{% static "css/style.min.css" %}{% endif %}">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="{% static 'js/card.js' %}"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+{% block footer %}{% endblock footer %}
+
+<footer>
+  <!-- Logo Section -->
+  <div class="footer-logo">
+    <h1>JEREX.XO</h1>
+    <p>Innovative solutions for the modern world.</p>
+  </div>
+
+  <!-- Navigation Section -->
+  <nav class="footer-nav">
+    <ul>
+      <li><a href="{% url 'Home' %}">Home</a></li>
+      <li><a href="{% url 'Error' %}">Services</a></li>
+      <li><a href="{% url 'About' %}">About Us</a></li>
+      <li><a href="{% url 'Contact' %}">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contact Section -->
+  <div class="footer-contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@jerex.xo</p>
+    <p>Phone: +123 456 7890</p>
+    <p>123 Innovation Street, Tech City</p>
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook" style="color: #000000;"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" style="color: #000000;"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" style="color: #000000;"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter" style="color: #000000;"></i></a>
+    </div>
+  </div>
+  
+    <!-- Footer Bottom -->
+<div class="footer-bottom">
+  <p>© 2025 JEREX.XO. All rights reserved.</p>
+</div>
+
+ <!-- Reveal Line Trigger -->
+<div class="jrx-reveal-line" onclick="jrxToggleCard()">
+ THIS IS ME THE DEVLOPER ▼
+</div>
+
+</footer>
+
+<!-- Fullscreen Card Overlay (OUTSIDE visually, but TRIGGERED from footer) -->
+<div class="jrx-fullscreen-card" id="jrxPopupCard">
+  <div class="jrx-card">
+    <span class="jrx-close-btn" onclick="jrxCloseCard()">✕</span>
+    <div class="jrx-card-img">
+      <img src="{% static 'images/owner.jpg' %}" alt="Ferrari SF-25">
+    </div>
+    <div class="jrx-card-content">
+      <h3>JEREX</h3>
+      <p>Thank you for visiting my website. I'm a passionate developer dedicated to 
+        creating innovative and useful solutions. If you have any questions, feedback, or 
+        simply want to say hi, feel free to reach out. Enjoy your stay, and have a great day!</p>
+    </div>
+  </div>
+</div> 
+  
+  <script src="{% static 'js/web1.js' %}"></script>
+  <script src="{% static 'js/slider.js' %}"></script>
+  <script src="{% static 'js/interactive-logo.js' %}"></script>
+</body>  
+</html>

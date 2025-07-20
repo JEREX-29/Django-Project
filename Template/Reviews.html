@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block footer %}
+<!-- Navigation Bar -->
+<div class="bg-white shadow-md px-4 py-3 grid grid-cols-[auto_1fr_auto] items-center">
+  <!-- Logo + Brand -->
+  <div class="flex items-center space-x-2">
+    <img src="{% static 'images/CMLOGO.png' %}" alt="Logo" class="w-12 h-12 sm:w-16 sm:h-16 rounded object-cover">
+    <span class="text-lg font-bold text-gray-900">
+      <a href="{% url 'Home' %}">JEREX.XO</a>
+    </span>
+  </div>
+
+  <!-- Nav Links -->
+  <div class="flex justify-center">
+    <nav class="hidden md:flex space-x-6 text-base sm:text-lg">
+      <a href="{% url 'Innovative' %}" class="text-gray-700 hover:text-gray-600">Innovative Designs</a>
+      <a href="{% url 'Sustainable' %}" class="text-gray-700 hover:text-gray-600">Sustainable Future</a>
+      <a href="{% url 'Ai' %}" class="text-gray-700 hover:text-gray-600">AI Technology</a>
+    </nav>
+    <!-- Hamburger for mobile -->
+    <button id="menu-toggle" class="md:hidden text-gray-800">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Logout -->
+  <div class="flex justify-end">
+    <a href="{% url 'logout' %}">
+      <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-300 text-sm sm:text-base">
+        Logout
+      </button>
+    </a>
+  </div>
+</div>
+
+<!-- Mobile Nav Menu -->
+<div id="menu" class="md:hidden hidden px-4 py-4 bg-white border-t space-y-2">
+  <a href="{% url 'Innovative' %}" class="block text-gray-700 hover:text-gray-600">Innovative Designs</a>
+  <a href="{% url 'Sustainable' %}" class="block text-gray-700 hover:text-gray-600">Sustainable Future</a>
+  <a href="{% url 'Ai' %}" class="block text-gray-700 hover:text-gray-600">AI Technology</a>
+</div>
+
+<!-- Review Form Section -->
+<section class="review-section bg-[#0f1113] text-white py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-3xl sm:text-4xl font-bold text-[#00a8ff] mb-8 text-center uppercase tracking-wide">
+      <i class="fas fa-comment-dots mr-2"></i> Leave Your Review
+    </h1>
+
+    <form method="post" onsubmit="return showFlashMessage(event)" class="bg-[#1c1f22] p-6 sm:p-8 rounded-xl border border-[#2d3436] shadow-lg">
+      {% csrf_token %}
+
+      <!-- Name -->
+      <label for="id_name" class="block text-sm font-semibold mb-2">Your Name</label>
+      <div class="icon-input relative mb-4">
+        <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-[#00a8ff]"></i>
+        <input type="text" name="name" id="id_name" required
+               class="w-full pl-10 pr-3 py-2 bg-[#26292c] text-white rounded-lg border border-[#3d3d3d] focus:outline-none focus:ring-2 focus:ring-[#00a8ff]"/>
+      </div>
+
+      <!-- Email -->
+      <label for="id_email" class="block text-sm font-semibold mb-2">Email</label>
+      <div class="icon-input relative mb-4">
+        <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-[#00a8ff]"></i>
+        <input type="email" name="email" id="id_email" required
+               class="w-full pl-10 pr-3 py-2 bg-[#26292c] text-white rounded-lg border border-[#3d3d3d] focus:outline-none focus:ring-2 focus:ring-[#00a8ff]"/>
+      </div>
+
+      <!-- Rating -->
+      <label for="id_rating" class="block text-sm font-semibold mb-2">Rating</label>
+      <div class="icon-input relative mb-4">
+        <i class="fas fa-star absolute left-3 top-1/2 transform -translate-y-1/2 text-[#00a8ff]"></i>
+        <select name="rating" id="id_rating" required
+                class="w-full pl-10 pr-3 py-2 bg-[#26292c] text-white rounded-lg border border-[#3d3d3d] focus:outline-none focus:ring-2 focus:ring-[#00a8ff]">
+          <option value="">Select</option>
+          <option value="1">1 Star</option>
+          <option value="2">2 Stars</option>
+          <option value="3">3 Stars</option>
+          <option value="4">4 Stars</option>
+          <option value="5">5 Stars</option>
+        </select>
+      </div>
+
+      <!-- Review -->
+      <label for="id_comment" class="block text-sm font-semibold mb-2">Your Review</label>
+      <div class="icon-input relative mb-6">
+        <i class="fas fa-pencil-alt absolute left-3 top-4 text-[#00a8ff]"></i>
+        <textarea name="comment" id="id_comment" rows="5" required
+                  class="w-full pl-10 pr-3 py-2 bg-[#26292c] text-white rounded-lg border border-[#3d3d3d] focus:outline-none focus:ring-2 focus:ring-[#00a8ff] resize-y"></textarea>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit"
+              class="w-full bg-[#00a8ff] hover:bg-[#0090e0] text-white py-2 px-4 rounded-lg font-semibold flex justify-center items-center transition-transform duration-200 hover:scale-105">
+        Submit Review <i class="fas fa-paper-plane ml-2"></i>
+      </button>
+    </form>
+
+    <!-- Flash Message -->
+    <div class="flash-message hidden fixed top-5 right-5 bg-green-500 text-white px-4 py-3 rounded-lg shadow-lg mt-4 z-50" id="flashMsg">
+      <strong>Thank you!</strong> Your review has been submitted.
+    </div>
+  </div>
+</section>
+
+<!-- Scripts -->
+<script>
+  function showFlashMessage(event) {
+    event.preventDefault();
+    const msg = document.getElementById('flashMsg');
+    msg.classList.remove('hidden');
+    setTimeout(() => {
+      msg.classList.add('hidden');
+      event.target.submit();
+    }, 2000);
+    return false;
+  }
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 ERROR</title>
+
+	<link rel="stylesheet" href="{% static 'css/error.css' %}">
+
+  <script src="{% static 'js/En_CSS/error(CSS).js' %}"></script>
+
+  <link rel="stylesheet" href="{% if debug %}{% static "css/style.css" %}{% else %}{% static "css/style.min.css" %}{% endif %}">
+</head>
+<body>
+
+    <main class="error-page min-h-screen flex items-center justify-center">
+      <div class="container text-center">
+        <!-- Eyes -->
+        <div class="eyes flex justify-center gap-10 mb-8">
+          <div class="eye">
+            <div class="eye__pupil eye__pupil--left"></div>
+          </div>
+          <div class="eye">
+            <div class="eye__pupil eye__pupil--right"></div>
+          </div>
+        </div>
+
+        <!-- Heading -->
+        <div class="error-page__heading">
+          <h1 class="error-page__heading-title">Looks like you're lost</h1>
+          <p class="error-page__heading-description">404 error</p>
+        </div>
+
+        <!-- Back Button -->
+        <a
+          class="error-page__button"
+          href="{% url 'Home' %}"
+          aria-label="back to home"
+          title="back to home"
+        >
+          back to home
+        </a>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button
+        class="color-switcher fixed bottom-6 right-6"
+        data-theme-color-switch
+        data-theme="light"
+        aria-label="toggle theme"
+        title="Toggle theme"
+      >
+        🌙
+      </button>
+    </main>
+</body>
+</html>

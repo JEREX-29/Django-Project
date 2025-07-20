@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block footer %}
+
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/CMLOGO.png' %}">
+
+    <title>Countact Us</title>
+
+    <link rel="stylesheet" href="{% static 'css/Contact.css' %}">
+
+    <script src="{% static 'js/En_CSS/Contact(CSS).js' %}"></script>
+    
+    <link rel="stylesheet" href="{% if debug %}{% static "css/style.css" %}{% else %}{% static "css/style.min.css" %}{% endif %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+<header class="w-full top-0 left-0 z-50">
+  <div class="content-fit flex items-center justify-between px-6 py-4">
+
+    <!-- LEFT: Logo + Name -->
+    <div class="flex items-center space-x-3">
+      <img src="{% static 'images/CMLOGO.png' %}" alt="Logo" class="w-20 h-20 rounded">
+      <span class="text-xl font-bold text-white"><a href="{% url 'Home' %}">JEREX.XO</a></span>
+    </div>
+
+    <!-- CENTER: Menu Options -->
+    <nav class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 text-white">
+      <a href="{% url 'Innovative' %}" class="hover:text-gray-300">Innovative Designs</a>
+      <a href="{% url 'Sustainable' %}" class="hover:text-gray-300">Sustainable Future</a>
+      <a href="{% url 'Ai' %}" class="hover:text-gray-300">AI Technology</a>
+    </nav>
+
+    <!-- RIGHT: Logout -->
+    <div class="hidden md:flex">
+      <a href="{% url 'logout' %}">
+        <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-300">
+          Logout
+        </button>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Icon -->
+    <div class="md:hidden">
+      <button id="menu-toggle" class="text-white focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div id="menu" class="hidden md:hidden px-6 pt-4 pb-6 space-y-4 text-white">
+    <a href="{% url 'Innovative' %}" class="block hover:text-gray-300">Innovative Designs</a>
+    <a href="{% url 'Sustainable' %}" class="block hover:text-gray-300">Sustainable Future</a>
+    <a href="{% url 'Ai' %}" class="block hover:text-gray-300">AI Technology</a>
+    <a href="{% url 'logout' %}">
+      <button class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-300">
+        Logout
+      </button>
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="{% static 'images/people(b)car.jpg' %}" alt="Car Windshield" class="hero-image">
+</section>
+
+<section class="support-section pd">
+  <div class="support-image">
+    <img src="{% static 'images/Help.jpg' %}" alt="Customer Support">
+  </div>
+  <div class="support-text">
+    <h2><strong>JEREX.XO</strong> <span>customer support</span></h2>
+    <p>
+      Our customers and drivers are our top priority, and we strive to provide them with exceptional support with each and every interaction.
+      Our dedicated team of knowledgeable specialists are available to assist with any questions or concerns you may have with your vehicle, the myVW app,
+      or any other ownership inquiries. Just reach out when you're ready—we'll happily help you make the most of your VW ownership experience.
+    </p>
+  </div>
+</section>
+
+
+<div class="Heading-Info">
+    <h1 class="text-black"><b>Our Services</b></h1>
+</div>
+
+<section class="Inf-Div">
+    <section class="div-order">
+        <div class="div-order-box">
+            <div class="main-div4-block">
+                <img src="https://assets.volkswagen.com/is/image/volkswagenag/breakdown_and_insurance-roadside_assitance-16_9-2500x1406_help?Zml0PWNyb3AsMSZmbXQ9d2VicCZxbHQ9Nzkmd2lkPTk2MCZhbGlnbj0wLjAwLDAuMDAmYmZjPW9mZiZhZTFl" alt="">
+                <p class="main-div4-fn1">Help Center</p>
+                <p class="main-div4-fn2">The Help Center is home to articles with quick answers to common questions. Enter your question or search by category to find what you’re looking for.</p>
+            </div>
+        </div>
+
+        <div class="div-order-box">
+            <div class="main-div4-block">
+                <img src="https://assets.volkswagen.com/is/image/volkswagenag/breakdown_and_insurance-roadside_assitance-16_9-2500x1406_credit?Zml0PWNyb3AsMSZmbXQ9d2VicCZxbHQ9Nzkmd2lkPTk2MCZhbGlnbj0wLjAwLDAuMDAmYmZjPW9mZiZhZTFl" alt="">
+                <p class="main-div4-fn1">Volkswagen Financial Services</p>
+                <p class="main-div4-fn2">This support team is available to assist with any questions or concerns you may have about your loan or account with Volkswagen Financial Services.</p>
+            </div>
+        </div>
+
+        <div class="div-order-box">
+            <div class="main-div4-block">
+                <img src="https://assets.volkswagen.com/is/image/volkswagenag/breakdown_and_insurance-roadside_assitance-16_9-2500x1406_Care?Zml0PWNyb3AsMSZmbXQ9d2VicCZxbHQ9Nzkmd2lkPTk2MCZhbGlnbj0wLjAwLDAuMDAmYmZjPW9mZiZhZTFl" alt="">
+                <p class="main-div4-fn1 text-black-300">Customer CARE</p>
+                <p class="main-div4-fn2">Dedicated to Creating a Relationship with Everyone (CARE), this support team can assist you with vehicle operation, maintenance, warranty, or any questions related to owning a VW.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="div-order">
+        <div class="div-order-box">
+            <div class="main-div4-block">
+                <img src="https://assets.volkswagen.com/is/image/volkswagenag/VW_NGW6_Sponsorship_Masthead_new-3?Zml0PWNyb3AsMSZmbXQ9d2VicCZxbHQ9Nzkmd2lkPTk2MCZhbGlnbj0wLjAwLDAuMDAmYmZjPW9mZiZhZTFl" alt="">
+                <p class="main-div4-fn1">myVW and Car-Net connected vehicle support</p>
+                <p class="main-div4-fn2">In need of assistance with the myVW mobile app or any of the other digitally connected services in your VW.</p>
+            </div>
+        </div>
+
+        <div class="div-order-box">
+            <div class="main-div4-block">
+                <img src="https://assets.volkswagen.com/is/image/volkswagenag/image%2048?Zml0PWNyb3AsMSZmbXQ9d2VicCZxbHQ9Nzkmd2lkPTk2MCZhbGlnbj0wLjAwLDAuMDAmYmZjPW9mZiZhZTFl" alt="">
+                <p class="main-div4-fn1">24/7 roadside assistance</p>
+                <p class="main-div4-fn2">Available 24/7, Volkswagen roadside assistance⁠2 combines qualified customer-service professionals with a comprehensive nationwide towing network to help bring the support you need.</p>
+            </div>
+        </div>
+
+        <div class="div-order-box">
+            <div class="main-div4-block">
+                <img src="https://assets.volkswagen.com/is/image/volkswagenag/XF_4-3_Wheels-and-tyres-4-2?Zml0PWNyb3AsMSZmbXQ9d2VicCZxbHQ9Nzkmd2lkPTk2MCZhbGlnbj0wLjAwLDAuMDAmYmZjPW9mZiZhZTFl" alt="">
+                <p class="main-div4-fn1">Electrify America</p>
+                <p class="main-div4-fn2">Get information about charging with Electrify America, charger locations, and other services related to your account.</p>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+    <section style="margin: 100px 0px;">
+        <h1 class="section-header">Features</h1>
+        <div class="articles-container">
+          <!-- Article 1 -->
+          <div class="article">
+            <div class="article-image-container">
+              <img src="https://cdn.pixabay.com/photo/2021/10/17/23/03/car-6719743_1280.jpg" alt="AI-Powered Cars">
+            </div>
+            <p class="article-title">Schedule service</p>
+            <a href="#" class="article-link">Read More</a>
+          </div>
+      
+          <!-- Article 2 -->
+          <div class="article">
+            <div class="article-image-container">
+              <img src="https://cdn.pixabay.com/photo/2022/11/29/08/54/race-car-7624025_1280.jpg" alt="Sustainable Designs">
+            </div>
+            <p class="article-title">Find a dealer</p>
+            <a href="#" class="article-link">Read More</a>
+          </div>
+      
+          <!-- Article 3 -->
+          <div class="article">
+            <div class="article-image-container">
+              <img src="https://cdn.pixabay.com/photo/2020/01/09/18/31/mercedes-4753586_1280.jpg" alt="Futuristic Features">
+            </div>
+            <p class="article-title">Recalls and service campaigns</p>
+            <a href="#" class="article-link">Read More</a>
+          </div>
+        </div>
+      </section>
+
+    <script>
+         const toggleBtn = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
+
+  toggleBtn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+    </script>
+
+</body>
+</html>
+
+{% endblock footer %}
