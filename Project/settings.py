@@ -34,7 +34,7 @@ if ENVIRONMENT == 'development' :
 else :
     DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost:8000','']
+ALLOWED_HOSTS = ['127.0.0.1','localhost:8000','django-project-production-3c7d.up.railway.app']
 
 CSRF_TRUSTED_ORIGINS = [ 'https://django-project-production-3c7d.up.railway.app' ]
 
