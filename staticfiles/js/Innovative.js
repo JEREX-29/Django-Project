@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
 // ** Navigation Bar */
 
 const menuToggle = document.getElementById('menu-toggle');
@@ -34,3 +35,4 @@ const menuToggle = document.getElementById('menu-toggle');
   });
 
 //** Navigation Bar End */ 
+

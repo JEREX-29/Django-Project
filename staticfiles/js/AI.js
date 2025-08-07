@@ -49,3 +49,4 @@ const toggleButton = document.getElementById('menu-toggle');
       mobileMenu.classList.add('hidden');
     }
   });
+
